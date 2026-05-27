@@ -20,13 +20,13 @@ app = FastAPI(
 )
 
 
-# CORS CONFIGURATION
 app.add_middleware(
     CORSMiddleware,
 
     allow_origins=[
         "http://localhost:5173",
-        "http://localhost:5174"
+        "http://localhost:5174",
+        "https://eternal-chat-ai.vercel.app"
     ],
 
     allow_credentials=True,
@@ -37,7 +37,6 @@ app.add_middleware(
 )
 
 
-# ROUTERS
 app.include_router(auth_router)
 app.include_router(conversation_router)
 app.include_router(message_router)
